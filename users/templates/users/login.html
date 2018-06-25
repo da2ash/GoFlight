@@ -1,0 +1,20 @@
+{% extends "users/base.html" %}
+
+{% block content %}
+
+<form method="post">
+	{% csrf_token %}
+	<h2>Login</h2><br><br>
+    {% if user is None %}
+        <p class="error">Sorry, that's not a valid username or password</p><br><br>
+    {% endif %}
+	<label for="username"><b>Username</b></label>
+	<input type="text" placeholder="Enter Username" name="username" id="username" required>
+	<br><br>
+	<label for="password"><b>Password</b></label>
+	<input type="password" placeholder="Enter Password" name="password" id="password" required>
+	<br><br><br>
+	<button type="submit" class="submit btn btn-success">Login</button>
+</form>
+
+{% endblock content %}
